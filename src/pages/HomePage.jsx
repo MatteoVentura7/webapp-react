@@ -1,5 +1,7 @@
 import axios from "../api/axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Heading from "../components/ui/Heading";
 
 export default function HomePage() {
   const [movies, setmovies] = useState([]);
@@ -14,14 +16,35 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>Home Page</h1>
-      <hr />
-      {movies.map((movie) => (
-        <div key={movie.id}>
-          {movie.title}
-          <img className="w-100" src={`/img/${movie.title}.jpg`} alt="" />
+      <div>
+        <div className="container max-w-10xl mx-auto pt-10 pb-20">
+          <div className="grid gap-8 h-full sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {movies.map((movie) => (
+              <div key={movie.id} className="flex  justify-center  ">
+                <div className="h-full ">
+                  <img
+                    className="w-40 object-cover h-full"
+                    src={`/img/${movie.title}.jpg`}
+                    alt=""
+                  />
+                </div>
+
+                <div className="w-50 bg-emerald-700 p-4">
+                  <Heading level={3}>{movie.title}</Heading>
+                  <Heading level={4}>{movie.director}</Heading>
+                  <Heading level={6}>{movie.abstract}</Heading>
+
+                  <Link to={`/movies/${movie.id}`}>
+                    <button className="text-white border-2 border-red-700 p-1.5 bg-red-700 cursor-pointer hover:scale-112 mt-4 ">
+                      Info
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
+      </div>
     </>
   );
 }
