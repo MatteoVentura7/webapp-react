@@ -24,7 +24,7 @@ export default function HomePage() {
                 <div className="h-full ">
                   <img
                     className="w-40 object-cover h-full"
-                    src={`/img/${movie.title}.jpg`}
+                    src={movie.image}
                     alt=""
                   />
                 </div>

@@ -35,11 +35,7 @@ export default function MoviePage() {
         </div>
 
         <div className="justify-center mb-5 m-10 md:flex ">
-          <img
-            className=" sm:w-20 md:w-60 lg:w-60"
-            src={`/img/${movie.title}.jpg`}
-            alt=""
-          />
+          <img className=" sm:w-20 md:w-60 lg:w-60" src={movie.image} alt="" />
           <div className="bg-emerald-700 p-4">
             <Heading level={1}>{movie.title}</Heading>
             <Heading level={3}>Regista: {movie.director}</Heading>
