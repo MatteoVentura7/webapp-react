@@ -1,9 +1,11 @@
 import axios from "../api/axios";
 import { useParams, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
-import Stars from "../components/ui/Stars";
+
 import { Link } from "react-router";
 import Heading from "../components/ui/Heading";
+import Review from "../components/Review";
+import FormAddReview from "../components/FormAddReview";
 
 export default function MoviePage() {
   const [movie, setMovie] = useState({});
@@ -52,8 +54,7 @@ export default function MoviePage() {
             <ul className="mt-4 space-y-4">
               {reviews.map((review) => (
                 <li key={review.id}>
-                  <strong>{review.name}</strong> <Stars vote={review.vote} />
-                  <p className="mt-2">{review.text}</p>
+                  <Review review={review} />
                 </li>
               ))}
             </ul>
@@ -61,6 +62,10 @@ export default function MoviePage() {
             <p>Non ci sono recensiioni</p>
           )}
         </div>
+        <section className="mt-4 bg-white p-4 space-y-4 text-center">
+          <Heading level={2}>Aggiungi una recensione</Heading>
+          <FormAddReview fetchMovie={fetchMovie} />
+        </section>
       </div>
     </>
   );
