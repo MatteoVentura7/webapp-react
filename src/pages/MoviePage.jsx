@@ -30,13 +30,14 @@ export default function MoviePage() {
       <div className="container max-w-10xl mx-auto pt-10">
         <div className="text-center pb-5">
           <Link to="/">
-            <i className="fa-solid fa-house"></i> Home page
+            <i className="fa-solid fa-house cursor-pointer hover:scale-150"></i>{" "}
+            Home page
           </Link>
         </div>
 
         <div className="justify-center mb-5 m-10 md:flex ">
           <img className=" sm:w-20 md:w-60 lg:w-60" src={movie.image} alt="" />
-          <div className="bg-emerald-700 p-4">
+          <div className="bg-emerald-700 p-4 rounded-b-2xl md:rounded-2xl md:rounded-l-none">
             <Heading level={1}>{movie.title}</Heading>
             <Heading level={3}>Regista: {movie.director}</Heading>
             <Heading level={6}>{movie.abstract}</Heading>
